@@ -1,0 +1,90 @@
+﻿@model FitnessStore.Models.Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details: @Model.ClassName</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectAreaDublin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectAreaDublin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GymName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GymName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxEnroll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxEnroll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScheduleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

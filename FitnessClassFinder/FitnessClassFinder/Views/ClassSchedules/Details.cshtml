@@ -1,0 +1,106 @@
+﻿@model FitnessClassFinder.Models.ClassSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClassSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxEnroll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxEnroll)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.FitnessClassID })*@  
+    @Html.ActionLink("Back to List", "Index")   |
+    <button type="submit" class="btn btn-primary">Booking</button>
+</p>

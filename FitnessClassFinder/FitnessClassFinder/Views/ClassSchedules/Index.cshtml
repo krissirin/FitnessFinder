@@ -1,0 +1,106 @@
+﻿@model IEnumerable<FitnessClassFinder.Models.ClassSchedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Fitness Class Schedules</h2>
+
+
+    @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Area: @Html.DropDownList("searchArea", "All")
+        Class: @Html.DropDownList("searchClass", "All")
+        <input type="submit" value="Search" />
+    </p>
+    }
+    
+
+<div class="tftable">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxEnroll)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxEnroll)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FitnessClassID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.FitnessClassID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FitnessClassID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
