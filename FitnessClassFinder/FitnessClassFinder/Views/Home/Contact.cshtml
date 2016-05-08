@@ -1,77 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact us for more details.";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-<section id="team" class="section gray-bg">
-    <div class="container">
-        <div class="row title text-center">
-            <h2 class="margin-top">Team</h2>
-            <h4 class="light muted">We're a dream team!</h4>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="team text-center">
-                    <div class="cover" style="background:url('~/Content/Images/team-cover1.jpg'); background-size:cover;">
-                        <img src="~/Content/Images/team2.jpg" alt="" class="icon">
-                        <div class="overlay text-center">
-                            <h3 class="white">€69.00</h3>
-                            <h5 class="light light-white">1 - 5 sessions / month</h5>
-                        </div>
-                    </div>
 
-                    <div class="title">
-                        <h4>Ben Adamson</h4>
-                        <h5 class="muted regular">Fitness Instructor</h5>
-                    </div>
-                    <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="team text-center">
-                    <div class="cover" style="background:url('img/team/team-cover2.jpg'); background-size:cover;">
-                        <img src="~/Content/Images/team1.jpg" alt="" class="icon">
-                        <div class="overlay text-center">
-                            <h3 class="white">€69.00</h3>
-                            <h5 class="light light-white">1 - 5 sessions / month</h5>
-                        </div>
-                    </div>
-                    <div class="title">
-                        <h4>Eva Williams</h4>
-                        <h5 class="muted regular">Personal Trainer</h5>
-                    </div>
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="team text-center">
-                    <div class="cover" style="background:url('img/team/team-cover3.jpg'); background-size:cover;">
-                        <img src="~/Content/Images/team3.jpg" alt="" class="icon">
-                        <div class="overlay text-center">
-                            <h3 class="white">€69.00</h3>
-                            <h5 class="light light-white">1 - 5 sessions / month</h5>
-                        </div>
-                    </div>
-                    <div class="title">
-                        <h4>John Phillips</h4>
-                        <h5 class="muted regular">Personal Trainer</h5>
-                    </div>
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-                </div>
-            </div>
-        </div>
+<div class="col-md-8">
+    <h4>Fitness Class Finder, IT Tallaght, Dublin Tel: 014567890 </h4>
+    <strong>Support:</strong>   <a href="mailto:admin@classfinder.ie">admin@classfinder.ie</a> <strong>Marketing:</strong> <a href="mailto:Marketing@classfinder.ie">marketing@classfinder.ie</a>
+    <br />
+    <div class="container-full-bg" style="background-image: url(Images/Personal-Training-Chiswick-Slider-2.png); background-size: 100% 100%;">
+        <img src="~/Content/Images/Personal-Training-Chiswick-Slider-2.png" alt="" img class="img-responsive footer-image" width="650" height="700">
     </div>
-</section>
-<br />
+</div>
+    <!------ ( GOOGLE MAP ) ------>
+<div class="col-md-4">
+        <h2><span class="glyphicon glyphicon-map-marker"></span> Office Location</h2>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:400px;width:600px;'>
+            <div id='gmap_canvas' style='height:400px;width:600px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google maps							</a></small></div><div><small><a href="http://www.buywebtrafficexperts.com">buy targeted traffic</a></small></div>
+            <style>
+                #gmap_canvas img {
+                    max-width: none !important;
+                    background: none !important;
+                }
+            </style>
+        </div>
+        <script type='text/javascript'>function init_map() { var myOptions = { zoom: 10, center: new google.maps.LatLng(53.2896663, -6.363484299999982), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(53.2896663, -6.363484299999982) }); infowindow = new google.maps.InfoWindow({ content: '<strong>Fitness Class Finder</strong><br>ITT Tallaght, Dublin<br>' }); google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); }); infowindow.open(map, marker); } google.maps.event.addDomListener(window, 'load', init_map);</script>
+    </div><!-- end of col-->

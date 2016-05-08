@@ -1299,8 +1299,28 @@ $(document).ready(function () {
     $('#BirthDate').focus(function () {
         if ($(this).val() == watermark) {
             $(this).val('').removeClass('watermark');
-            //$(this).css('color', '#999');
+        }
+    });
+});
 
+$(document).ready(function () {
+
+    var watermark = 'e.g. Tallaght';
+
+    //init, set watermark text and class
+    $('#LocalArea').val(watermark).addClass('watermark');
+
+    //if blur and no value inside, set watermark text and class again.
+    $('#LocalArea').blur(function () {
+        if ($(this).val().length == 0) {
+            $(this).val(watermark).addClass('watermark');
+        }
+    });
+
+    //if focus and text is watermrk, set it to empty and remove the watermark class
+    $('#LocalArea').focus(function () {
+        if ($(this).val() == watermark) {
+            $(this).val('').removeClass('watermark');
         }
     });
 });

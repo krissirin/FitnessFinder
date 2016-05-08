@@ -4,103 +4,176 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Fitness Class Schedules</h2>
+<link href="~/Content/Carousel.css" rel="stylesheet" type="text/css">
+<!--begin bg-carousel-->
+<div id="bg-fade-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="slide6"></div>
+        </div>
+        <div class="item">
+            <div class="slide7"></div>
+        </div>
+        <div class="item">
+            <div class="slide8"></div>
+        </div>
+    </div><!-- .carousel-inner -->
+</div><!-- .carousel -->
+<!--end bg-carousel-->
+<br />
 
 
-    @Html.ActionLink("Create New", "Create")
+<h2><span class="glyphicon glyphicon-heart"></span><strong> Find your favourite class near you this month</strong></h2>
+<div class="col-md-8">
+    <iframe  width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/embed?mid=1G6KIeQ3R8hWtOFpPhSOUyXrh-z4"></iframe>
+</div>
+    <div class="col-md-4">
+        <a href="http://www.lesmills.com/us/workouts/high-intensity-interval-training/les-mills-grit-plyo/"><img src="~/Content/Images/Lesmil1.jpg" alt="" img class="img-responsive footer-image" width="600" height="900"></a> <br />
+        <iframe width="350" height="200" src="https://www.youtube.com/embed/2oWzc8HveJw?list=PL8CA60D662874190B" frameborder="0" allowfullscreen></iframe>
+        <a href="https://www.facebook.com/Local-Fitness-Finder-775649475819028/"><img src="~/Content/Images/FindUsOnFB-144.png" alt="" img class="img-responsive footer-image" width="200" height="80"></a>
+</div> 
+<br />
+
+
+
+<div class="container">
+    <div class="col-lg-12">
+        <h4></h4>
+    </div>
+</div>
 
     @using (Html.BeginForm())
     {
-    <p>
-        Area: @Html.DropDownList("searchArea", "All")
-        Class: @Html.DropDownList("searchClass", "All")
-        <input type="submit" value="Search" />
-    </p>
+        <h3> <span class="glyphicon glyphicon-search"></span><strong>
+    Search by Area: @Html.DropDownList("searchArea", "All")
+    <span class="glyphicon glyphicon-search"></span>
+    Search by Class: @Html.DropDownList("searchClass", "All")
+    <input type="submit" value="Search" />
+        </strong>
+        </h3>
     }
-    
 
-<div class="tftable">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category.CategoryDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SelectArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LocalArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClassName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BusinessName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxEnroll)
-            </th>
-            <th></th>
-        </tr>
+    <div class="tftable" width="100%" height="100%" >
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryDescription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SelectArea)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LocalArea)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClassName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BusinessName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaxEnroll)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.FitnessClassID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.FitnessClassID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.FitnessClassID })
-                </td>
-            </tr>
-        }
+        <table id="myTable" table class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category.CategoryDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SelectArea)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Area", "Index", new { sortOrder = ViewBag.AreaSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Class Name", "Index", new { sortOrder = ViewBag.ClassSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BusinessName)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaxEnroll)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fee)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.CategoryDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SelectArea)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LocalArea)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClassName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BusinessName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaxEnroll)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fee)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.FitnessClassID }) |
+                            @Html.ActionLink("Book", "Create", "Participants", null, null)
+                            @*@Html.ActionLink("Delete", "Delete", new { id = item.FitnessClassID })*@
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>
+
+    @section Scripts {
+
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
+        @Scripts.Render("~/bundles/jquery.tablesorter")
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('input[type=datetime]').datepicker({
+                    dateFormat: "dd/M/yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-60:+0"
+                });
+
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#myTable").tablesorter();
+            }
+            );
+        </script>
+    }

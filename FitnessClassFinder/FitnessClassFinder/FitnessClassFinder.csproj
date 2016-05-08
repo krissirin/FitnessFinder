@@ -265,38 +265,58 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ClassSchedulesController.cs" />
+    <Compile Include="Controllers\EditUsersController.cs" />
+    <Compile Include="Controllers\FitnessCartController1.cs" />
+    <Compile Include="Controllers\FitnessCartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Controllers\RegistrationRecordsController.cs" />
-    <Compile Include="Controllers\RolesAdminController.cs" />
-    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
+    <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201603061354124_InitialCreate.cs" />
-    <Compile Include="Migrations\201603061354124_InitialCreate.Designer.cs">
-      <DependentUpon>201603061354124_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201604162134153_InitialCreate.cs" />
+    <Compile Include="Migrations\201604162134153_InitialCreate.Designer.cs">
+      <DependentUpon>201604162134153_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604031321294_AddLocalArea.cs" />
-    <Compile Include="Migrations\201604031321294_AddLocalArea.Designer.cs">
-      <DependentUpon>201604031321294_AddLocalArea.cs</DependentUpon>
+    <Compile Include="Migrations\201604171738306_Add_AdminModels.cs" />
+    <Compile Include="Migrations\201604171738306_Add_AdminModels.Designer.cs">
+      <DependentUpon>201604171738306_Add_AdminModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604031354067_AddBusinessName.cs" />
-    <Compile Include="Migrations\201604031354067_AddBusinessName.Designer.cs">
-      <DependentUpon>201604031354067_AddBusinessName.cs</DependentUpon>
+    <Compile Include="Migrations\201604171752147_UsersAndRolesModels.cs" />
+    <Compile Include="Migrations\201604171752147_UsersAndRolesModels.Designer.cs">
+      <DependentUpon>201604171752147_UsersAndRolesModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605052041545_ModelChanged.cs" />
+    <Compile Include="Migrations\201605052041545_ModelChanged.Designer.cs">
+      <DependentUpon>201605052041545_ModelChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605072303197_ChangedModel.cs" />
+    <Compile Include="Migrations\201605072303197_ChangedModel.Designer.cs">
+      <DependentUpon>201605072303197_ChangedModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605072318114_ChangedModel_Participants.cs" />
+    <Compile Include="Migrations\201605072318114_ChangedModel_Participants.Designer.cs">
+      <DependentUpon>201605072318114_ChangedModel_Participants.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminModels.cs" />
     <Compile Include="Models\BookingCartModels.cs" />
     <Compile Include="Models\FitnessCart.cs" />
+    <Compile Include="Models\FitnessDBContext.cs" />
+    <Compile Include="Models\FitnessDatabaseInitializer.cs" />
     <Compile Include="Models\FitnessModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\FitnessCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\FitnessCartViewModel.cs" />
+    <Compile Include="ViewModels\InstructorIndex.cs" />
     <Compile Include="ViewModels\SchedulePagedList.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -305,14 +325,33 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrapCardio.css" />
     <Content Include="Content\cardio.css" />
+    <Content Include="Content\Carousel.css" />
     <Content Include="Content\et-icons.css" />
+    <Content Include="Content\Images\FindUsOnFB-144.png" />
+    <Content Include="Content\Images\fitness-motivation-1.jpg" />
+    <Content Include="Content\Images\fitness-motivation-2.jpg" />
+    <Content Include="Content\Images\fitness-motivation-3.jpg" />
+    <Content Include="Content\Images\FitnessIreland.jpg" />
     <Content Include="Content\Images\footer.jpg" />
     <Content Include="Content\Images\guru-blue.png" />
     <Content Include="Content\Images\header.jpg" />
+    <Content Include="Content\Images\header1.PNG" />
+    <Content Include="Content\Images\header2.JPG" />
     <Content Include="Content\Images\heart-blue.png" />
+    <Content Include="Content\Images\Lesmil1.jpg" />
+    <Content Include="Content\Images\lesmil2.jpg" />
+    <Content Include="Content\Images\lesmills3.jpg" />
+    <Content Include="Content\Images\lesmills4.jpg" />
+    <Content Include="Content\Images\lesmills5.jpg" />
     <Content Include="Content\Images\logo-active.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\LogoW.png" />
+    <Content Include="Content\Images\ma.jpg" />
+    <Content Include="Content\Images\ma1.jpg" />
+    <Content Include="Content\Images\Nike-poster.jpg" />
+    <Content Include="Content\Images\pat.jpg" />
+    <Content Include="Content\Images\Personal-Training-Chiswick-Slider-2.png" />
+    <Content Include="Content\Images\Personal-Training.jpg" />
     <Content Include="Content\Images\pricing1.jpg" />
     <Content Include="Content\Images\pricing2.jpg" />
     <Content Include="Content\Images\team-cover1.jpg" />
@@ -322,9 +361,48 @@
     <Content Include="Content\Images\team2.jpg" />
     <Content Include="Content\Images\team3.jpg" />
     <Content Include="Content\Images\weight-blue.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\owl.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -337,12 +415,22 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\FitnessClassFinder2016.pubxml" />
+    <None Include="Properties\PublishProfiles\fitnessclassfinderMVC - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-latest.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.custom.zip" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.metadata.js" />
     <Content Include="Scripts\jquery.onepagenav.js" />
+    <Content Include="Scripts\jquery.tablesorter.js" />
+    <Content Include="Scripts\jquery.tablesorter.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -392,16 +480,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\RoleViewModels\Create.cshtml" />
-    <Content Include="Views\RoleViewModels\Delete.cshtml" />
-    <Content Include="Views\RoleViewModels\Details.cshtml" />
-    <Content Include="Views\RoleViewModels\Edit.cshtml" />
-    <Content Include="Views\RoleViewModels\Index.cshtml" />
-    <Content Include="Views\UserAdmin\Create.cshtml" />
-    <Content Include="Views\UserAdmin\Delete.cshtml" />
-    <Content Include="Views\UserAdmin\Details.cshtml" />
-    <Content Include="Views\UserAdmin\Edit.cshtml" />
-    <Content Include="Views\UserAdmin\Index.cshtml" />
     <Content Include="Views\Instructors\Create.cshtml" />
     <Content Include="Views\Instructors\Delete.cshtml" />
     <Content Include="Views\Instructors\Details.cshtml" />
@@ -427,6 +505,25 @@
     <Content Include="Views\ClassSchedules\Details.cshtml" />
     <Content Include="Views\ClassSchedules\Edit.cshtml" />
     <Content Include="Views\ClassSchedules\Index.cshtml" />
+    <Content Include="Views\FitnessCarts\Create.cshtml" />
+    <Content Include="Views\FitnessCarts\Delete.cshtml" />
+    <Content Include="Views\FitnessCarts\Details.cshtml" />
+    <Content Include="Views\FitnessCarts\Edit.cshtml" />
+    <Content Include="Views\FitnessCarts\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\EditUsers\Create.cshtml" />
+    <Content Include="Views\EditUsers\Delete.cshtml" />
+    <Content Include="Views\EditUsers\Details.cshtml" />
+    <Content Include="Views\EditUsers\Edit.cshtml" />
+    <Content Include="Views\EditUsers\Index.cshtml" />
+    <Content Include="Views\UserRoles\Create.cshtml" />
+    <Content Include="Views\UserRoles\Delete.cshtml" />
+    <Content Include="Views\UserRoles\Details.cshtml" />
+    <Content Include="Views\UserRoles\Edit.cshtml" />
+    <Content Include="Views\UserRoles\Index.cshtml" />
+    <Content Include="Views\Shared\_Notifications.cshtml" />
+    <Content Include="Views\Shared\_MainLogin.cshtml" />
+    <Content Include="Views\Shared\_MainRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,14 +540,23 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603061354124_InitialCreate.resx">
-      <DependentUpon>201603061354124_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604162134153_InitialCreate.resx">
+      <DependentUpon>201604162134153_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604031321294_AddLocalArea.resx">
-      <DependentUpon>201604031321294_AddLocalArea.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604171738306_Add_AdminModels.resx">
+      <DependentUpon>201604171738306_Add_AdminModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604031354067_AddBusinessName.resx">
-      <DependentUpon>201604031354067_AddBusinessName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604171752147_UsersAndRolesModels.resx">
+      <DependentUpon>201604171752147_UsersAndRolesModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605052041545_ModelChanged.resx">
+      <DependentUpon>201605052041545_ModelChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605072303197_ChangedModel.resx">
+      <DependentUpon>201605072303197_ChangedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605072318114_ChangedModel_Participants.resx">
+      <DependentUpon>201605072318114_ChangedModel_Participants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

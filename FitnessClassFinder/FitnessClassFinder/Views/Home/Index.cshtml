@@ -2,199 +2,200 @@
     ViewBag.Title = "Home Page";
 }
 <link href="~/Content/Site.css" rel="stylesheet" type="text/css">
+<link href="~/Content/Carousel.css" rel="stylesheet" type="text/css">
 
-<div class="container-full-bg" style="background-image: url(Images/header.jpg); background-size: 100% 100%;">
-    <div class="jumbotron">
-        <div class="col-md-12 text-center">
-            <h3>Take care of your body.</h3>
-            <h1>It's the only place you have to live..</h1>
+<!--begin bg-carousel-->
+<div id="bg-fade-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="slide1"></div>
         </div>
-        @*<p class="lead">Take care of your body.</p>
-            <h1>It's the only place you have to live..</h1>*@
+        <div class="item">
+            <div class="slide2"></div>
+        </div>
+        <div class="item">
+            <div class="slide3"></div>
+        </div>
+        <div class="item">
+            <div class="slide4"></div>
+        </div>
+        <div class="item">
+            <div class="slide5"></div>
+        </div>
+    </div><!-- .carousel-inner -->
+    <div class="container carousel-overlay text-center">
+        <a class="btn btn-lg btn-success fp-buttons" href="@Url.Action("Index", "ClassSchedules")">
+            <span class="fa fa-dollar"></span> Find a Class
+        </a>
+    </div>
+</div><!-- .carousel -->
+<!--end bg-carousel-->
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading"><h4><strong>Fitness Trend</strong></h4></div>
+            <div class="panel-body">
+                <strong>The 15 Next Big Fitness Trends</strong><br />
+                These innovative workouts mix up traditional training methods to deliver sweat-inducing sessions, amazing results, and fitness that’s fun again.
+                <a class="btn btn-primary" href="http://www.shape.com/fitness/trends/15-next-big-fitness-trends">Read more &raquo;</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading"><h4><strong>Nutrition Advice</strong></h4></div>
+            <div class="panel-body"><span class="glyphicon glyphicon-thumbs-up"></span>
+    <strong>32 Must-Follow Food and Nutrition Blogs</strong><br />
+    Choosing which food blogs to follow can be overwhelming...
+    <a class="btn btn-primary" href="http://greatist.com/eat/best-food-blogs-2016">Read more &raquo;</a> <br />
+</div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading"><h4><strong>BMI healthy weight</strong></h4></div>
+            <div class="panel-body">
+                Find out if you are a healthy weight, understand how BMI is calculated and get practical weight loss information.<br />
+                <a class="btn btn-primary" href="http://www.nhs.uk/Tools/Pages/Healthyweightcalculator.aspx">Check Now &raquo;</a><br />
+            </div>
+        </div>
     </div>
 </div>
-    <div class="row">
-        <div class="col-md-10">
-            <h2>Search</h2>
-            <p>FIND A CLASS NEAR YOU</p>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail3">All CLASSES</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="All CLASSES">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword3">LOCATION</label>
-                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="LOCATION">
-                </div>
-                <button type="submit" class="btn btn-primary">GO</button>
-            </form>
-            @*<p><a class="btn btn-default" href="@Url.Action("Register", "Account")">Go &raquo;</a></p>*@
-        </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="white heading"><strong>Services</strong></h3>
+        <img class="img-responsive footer-image" src="~/Content/Images/pat.jpg">
     </div>
-    <br>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Class Participants</h2>
-            <p>
-                Find classes in your area and get class information.
-            </p>
-            <p><a class="btn btn-default" href="@Url.Action("Register", "Account")">Register Now &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Class Instructor</h2>
-            <p>Advertise your class for free and get feedback.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Register Now &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Fitness Trend</h2>
-            <h3><strong>The 15 Next Big Fitness Trends</strong></h3>
-            <p>These innovative workouts mix up traditional training methods to deliver sweat-inducing sessions, amazing results, and fitness that’s fun again.</p>
-            <p><a class="btn btn-default" href="http://www.shape.com/fitness/trends/15-next-big-fitness-trends">Read more &raquo;</a></p>
-        </div>
-    </div>
-    <section>
-        <div class="cut cut-top"></div>
-        <div class="container">
-            <div class="row intro-tables">
-                <div class="col-md-4">
-                    <div class="intro-table intro-table-first">
-                        <h3 class="white heading"><strong>Today's Schedule</strong></h3>
-                        <div class="owl-carousel owl-schedule bottom">
-                            <div class="item">
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5>Zumba</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">6pm - 7pm</h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white">Muscle Building</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">5pm - 6pm</h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white">Yoga</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">7pm - 8pm</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white">Pilates</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">9am - 10am</h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white">CrossFit</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">6pm - 7pm</h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white">BodyStep</h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white">11am - 12pm</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white"></h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white"></h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white"></h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white"></h5>
-                                    </div>
-                                </div>
-                                <div class="schedule-row row">
-                                    <div class="col-xs-6">
-                                        <h5 class="regular white"></h5>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <h5 class="white"></h5>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="col-md-4">
+        <div class="intro-table intro-table-first">
+            <h3 class="white heading"><strong>Today's Schedule</strong></h3>
+            <div class="owl-carousel owl-schedule bottom">
+                <div class="item">
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5>Les Mills Pure-Grit</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">6pm - 7pm</h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white">Yoga</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">6pm - 7.30pm</h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white">Boxing</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">5pm - 6pm</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="intro-table intro-table-hover">
-                        <h3 class="white heading hide-hover"><strong></strong></h3>
-                        <div class="bottom">
-                            <h4 class="white heading small-heading no-margin regular"></h4>
-                            <h4 class="white heading small-pt"></h4>
-                            <a href="#" class="btn btn-white-fill expand"></a>
+                <div class="item">
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white">Pilates</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">9am - 10am</h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white">CrossFit</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">6pm - 7pm</h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white">BodyStep</h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white">11am - 12pm</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="intro-table intro-table-third">
-                        <h3 class="white heading"><strong>Happy Clients</strong></h3>
-                        <div class="owl-testimonials bottom">
-                            <div class="item">
-                                <h4 class="white heading content">I couldn't be more happy with the results!</h4>
-                                <h5 class="white heading light author">Adam Jordan</h5>
-                            </div>
-                            <div class="item">
-                                <h4 class="white heading content">I can't believe how much better I feel!</h4>
-                                <h5 class="white heading light author">Greg Pardon</h5>
-                            </div>
-                            <div class="item">
-                                <h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
-                                <h5 class="white heading light author">Christina Goldman</h5>
-                            </div>
+                <div class="item">
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white"></h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white"></h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white"></h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white"></h5>
+                        </div>
+                    </div>
+                    <div class="schedule-row row">
+                        <div class="col-xs-6">
+                            <h5 class="regular white"></h5>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h5 class="white"></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <br>
-    <div class="col-sm-6 text-center-mobile">
-        <h3 class="white">Reserve a Free Trial Class!</h3>
-        <h5 class="light regular light-white">Shape your body and improve your health.</h5>
-        <a href="#" class="btn btn-blue ripple trial-button">Start Free Trial</a>
     </div>
-    <div class="col-sm-6 text-center-mobile">
-        <h3 class="white">Opening Hours <span class="open-blink"></span></h3>
+    <div class="col-md-4">
+        <div class="intro-table intro-table-third">
+            <h3 class="white heading"><strong>Happy Clients</strong></h3>
+            <div class="owl-testimonials bottom">
+                <div class="item">
+                    <h4 class="white heading content">I couldn't be more happy with the results!</h4>
+                    <h5 class="white heading light author">Adam Jordan</h5>
+                </div>
+                <div class="item">
+                    <h4 class="white heading content">I can't believe how much better I feel!</h4>
+                    <h5 class="white heading light author">Greg Pardon</h5>
+                </div>
+                <div class="item">
+                    <h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
+                    <h5 class="white heading light author">Christina Goldman</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="col-lg-12">
+        <a href="http://www.fitnessireland.ie/?gclid=COD4ucPOyMwCFYJz2wod50oNPA"><img class="img-responsive" src="~/Content/Images/FitnessIreland.jpg"></a>
+</div>
+    <div class="col-sm-6">
+        <h3><strong>Fitness Hours</strong></h3>
         <div class="row opening-hours">
-            <div class="col-sm-6 text-center-mobile">
-                <h5 class="light-white light">Mon - Fri</h5>
-                <h3 class="regular white">9:00 - 22:00</h3>
+            <div class="col-sm-6">
+                <h5>Mon - Fri</h5>
+                <h3>06:00 - 22:00</h3>
             </div>
-            <div class="col-sm-6 text-center-mobile">
-                <h5 class="light-white light">Sat - Sun</h5>
-                <h3 class="regular white">10:00 - 18:00</h3>
+            <div class="col-sm-6">
+                <h5>Sat - Sun</h5>
+                <h3>06:00 - 18:00</h3>
             </div>
         </div>
     </div>
     <div id="footer">
         <div class="footer-image-container">
-            <img class="img-responsive footer-image" src="~/Content/Images/footer.jpg">
+            <img class="img-responsive footer-image" src="~/Content/Images/Nike-poster.jpg">
         </div>
     </div>
 

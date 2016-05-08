@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FitnessClassFinder.Models;
+using FitnessClassFinder.Extensions;
 
 namespace FitnessClassFinder.Controllers
 {
@@ -16,13 +17,15 @@ namespace FitnessClassFinder.Controllers
         private FitnessDBContext db = new FitnessDBContext();
 
         // GET: ClassSchedules
-        public async Task<ActionResult> Index(string searchArea, string searchClass)
+        public async Task<ActionResult> Index(string searchArea, string searchClass, string sortOrder)
         {
-            //var schedules = db.Schedules.Include(c => c.Category);
-            //return View(await schedules.ToListAsync());
+            //Add Sorting Functionality
+            ViewBag.AreaSortParm = String.IsNullOrEmpty(sortOrder) ? "Area" : "";
+            ViewBag.ClassSortParm = String.IsNullOrEmpty(sortOrder) ? "Class" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "Date_desc" : "Date";
 
+            //Sort by Area
             var AreaLst = new List<string>();
-
             var AreaQry = from a in db.Schedules
                            orderby a.LocalArea
                            select a.LocalArea;
@@ -30,6 +33,7 @@ namespace FitnessClassFinder.Controllers
             AreaLst.AddRange(AreaQry.Distinct());
             ViewBag.searchArea = new SelectList(AreaLst);
 
+            //Sort by Class name
             var ClassLst = new List<string>();
             var ClassQry = from s in db.Schedules
                            orderby s.ClassName
@@ -38,14 +42,38 @@ namespace FitnessClassFinder.Controllers
             ClassLst.AddRange(ClassQry.Distinct());
             ViewBag.searchClass = new SelectList(ClassLst);
 
+
             var schedules = from s in db.Schedules
                          select s;
+            //{
+            //    schedules = schedules.Where(s => s.LocalArea.ToUpper().Contains(Search_Data.ToUpper())
+            //        || s.ClassName.ToUpper().Contains(Search_Data.ToUpper()));
+            //}
+            switch (sortOrder)
+            {
+                case "Area":
+                    schedules = schedules.OrderByDescending(s => s.LocalArea);
+                    break;
+                case "Class":
+                    schedules = schedules.OrderByDescending(s => s.ClassName);
+                    break;
+                case "Date":
+                    schedules = schedules.OrderBy(s => s.StartDate);
+                    break;
+                case "Date_desc":
+                    schedules = schedules.OrderByDescending(s => s.StartDate);
+                    break;
+
+                default:
+                    schedules = schedules.OrderBy(s => s.LocalArea);
+                    break;
+            }
 
             if (!String.IsNullOrEmpty(searchClass))
             {
                 schedules = schedules.Where(s => s.ClassName.Contains(searchClass));
             }
-            if (!string.IsNullOrEmpty(searchArea))
+            if (!String.IsNullOrEmpty(searchArea))
             {
                 schedules = schedules.Where(x => x.LocalArea == searchArea);
             }
@@ -86,6 +114,7 @@ namespace FitnessClassFinder.Controllers
             {
                 db.Schedules.Add(classSchedule);
                 await db.SaveChangesAsync();
+                this.AddNotification("Class created.", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
 
@@ -120,6 +149,7 @@ namespace FitnessClassFinder.Controllers
             {
                 db.Entry(classSchedule).State = EntityState.Modified;
                 await db.SaveChangesAsync();
+                this.AddNotification("Class edited.", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryDescription", classSchedule.CategoryID);
@@ -149,6 +179,7 @@ namespace FitnessClassFinder.Controllers
             ClassSchedule classSchedule = await db.Schedules.FindAsync(id);
             db.Schedules.Remove(classSchedule);
             await db.SaveChangesAsync();
+            this.AddNotification("Class deleted.", NotificationType.INFO);
             return RedirectToAction("Index");
         }
 

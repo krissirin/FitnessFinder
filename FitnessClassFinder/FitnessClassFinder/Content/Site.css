@@ -69,3 +69,15 @@ html,body {height:100%;width:100%;}
 	-moz-border-radius-bottomleft:0px;
 	-webkit-border-bottom-left-radius:0px;
 	border-bottom-left-radius:0px;
+
+
+/* info and errors */
+.selectedrow 
+{ 
+    background-color: #a4d4e6; 
+}
+.message-info {
+    border: 1px solid;
+    clear: both;
+    padding: 10px 20px;
+}

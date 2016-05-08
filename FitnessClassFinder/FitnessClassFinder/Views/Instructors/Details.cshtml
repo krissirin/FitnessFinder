@@ -43,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HireDate)
+            @Html.DisplayNameFor(model => model.Phone)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HireDate)
+            @Html.DisplayFor(model => model.Phone)
         </dd>
 
         <dt>
@@ -58,17 +58,21 @@
             @Html.DisplayFor(model => model.Status)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.FitnessClassID)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FitnessClassID)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.InstructorID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add a New Class", "Create", "ClassSchedules", null, null)
+
+    @*@Html.ActionLink("Back to List", "Index")   |
+        <button type="submit" class="btn btn-primary">Booking</button>*@
 </p>

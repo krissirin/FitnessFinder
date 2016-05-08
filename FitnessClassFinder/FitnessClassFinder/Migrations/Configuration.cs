@@ -4,16 +4,16 @@ namespace FitnessClassFinder.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using FitnessClassFinder.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FitnessClassFinder.Models.FitnessDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FitnessDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "FitnessClassFinder.Models.FitnessDBContext";
         }
 
-        protected override void Seed(FitnessClassFinder.Models.FitnessDBContext context)
+        protected override void Seed(FitnessDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

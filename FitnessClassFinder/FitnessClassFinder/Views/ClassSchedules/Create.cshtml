@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Add a Class Schedule</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Add a Class Schedule</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -67,7 +67,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -75,7 +75,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -83,7 +83,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -97,7 +97,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fee, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fee, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryID, "Select Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
@@ -106,7 +114,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -119,3 +127,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

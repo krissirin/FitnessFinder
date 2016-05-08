@@ -151,11 +151,17 @@ namespace FitnessClassFinder.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, BirthDate = model.BirthDate, Address = model.Address, Town = model.Town, County = model.County, Postcode = model.Postcode };
+                var user = new ApplicationUser
+                {
+                  UserName = model.Email,
+                  Email = model.Email
+                };
+
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, BirthDate = model.BirthDate, Address = model.Address, Town = model.Town, County = model.County, Postcode = model.Postcode };
 
                 //Add Profile Data properties:
                 user.Name = model.Name;
-                user.BirthDate = model.BirthDate;
+                //user.BirthDate = model.BirthDate;
                 user.Address = model.Address;
                 user.Town = model.Town;
                 user.County = model.County;
@@ -165,7 +171,7 @@ namespace FitnessClassFinder.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -173,17 +179,17 @@ namespace FitnessClassFinder.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    //return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");
 
-                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account",
-                        new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id,
-                        "Confirm your account",
-                        "Please confirm your account by clicking this link: <a href=\""
-                        + callbackUrl + "\">link</a>");
-                    ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
+                    //var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account",
+                    //    new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id,
+                    //    "Confirm your account",
+                    //    "Please confirm your account by clicking this link: <a href=\""
+                    //    + callbackUrl + "\">link</a>");
+                    //ViewBag.Link = callbackUrl;
+                    //return View("DisplayEmail");
 
                 }
                 AddErrors(result);
@@ -413,7 +419,7 @@ namespace FitnessClassFinder.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

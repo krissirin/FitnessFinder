@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Book</h2>
 
 <div>
     <h4>ClassSchedule</h4>
@@ -95,6 +95,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.MaxEnroll)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fee)
         </dd>
 
     </dl>

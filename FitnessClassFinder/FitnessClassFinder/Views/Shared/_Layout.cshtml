@@ -31,7 +31,7 @@
 
                 @*@Html.ActionLink("Class Finder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
 
-                <a href='@Html.ActionLink("Fitness Class Finder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })'>
+                @*<a href='@Html.ActionLink("Fitness Class Finder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })'>*@
                 <img src="~/Content/images/weight-blue.png" alt="Company logo" width="60" height="50" />
                 </a>
 
@@ -40,12 +40,12 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("ClassFinder", "Index", "Home")</li>
                     <li>@Html.ActionLink("Services", "About", "Home")</li>
-                    <li>@Html.ActionLink("Instructors", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @*<li>@Html.ActionLink("Participants", "Index", "Participants")</li>
                     <li>@Html.ActionLink("Instructors", "Index", "Instructors")</li>
                     <li>@Html.ActionLink("Schedules", "Index", "Schedules")</li>
                     <li>@Html.ActionLink("Records", "Index", "Records")</li>*@
-                    <li>@Html.ActionLink("Add a Class", "Create", "ClassSchedules")</li>
+                    @*<li>@Html.ActionLink("Add a Class", "Create", "ClassSchedules")</li>*@
                     <li>@Html.ActionLink("Search", "Index", "ClassSchedules")</li>
                     @*<li>@Html.ActionLink("Book a Class", "Index", "Book")</li>*@
                 </ul>
@@ -54,6 +54,7 @@
         </div>
     </div>
     <div class="container body-content">
+        @Html.Partial("_Notifications")
         @RenderBody()
         <hr />
         <footer>

@@ -71,7 +71,7 @@ namespace FitnessClassFinder.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -86,10 +86,10 @@ namespace FitnessClassFinder.Models
         [StringLength(20, ErrorMessage = "Name is too long")]
         public string Name { get; set; }
 
-        [Display(Name = "Date of Birth")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyy}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { get; set; }
+        //[Display(Name = "Date of Birth")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:dd-MM-yyy}", ApplyFormatInEditMode = true)]
+        //public DateTime BirthDate { get; set; }
 
         [StringLength(20, ErrorMessage = "Address is too long")]
         public string Address { get; set; }
@@ -109,7 +109,7 @@ namespace FitnessClassFinder.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

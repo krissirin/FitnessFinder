@@ -15,14 +15,14 @@ namespace FitnessClassFinder.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Sign up now and reserve a Free Trial Class!";
+            ViewBag.Message = "";
 
             return View();
         }
